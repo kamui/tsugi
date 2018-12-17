@@ -1,0 +1,22 @@
+:root {
+  --color-validation1: #008145;
+  --color-validation2: #009E61;
+
+  --color-alert1: #d72b00;
+  --color-alert2: #fc4618;
+
+  --color-grey1: #fafafa;
+  --color-transparent-grey1: rgba(244, 244, 244, 0.5);
+  --color-grey2: #e5e5e5;
+  --color-grey3: #c9c9c9;
+  --color-grey4: #707070;
+  --color-grey5: #4c4c4c;
+  --color-grey6: #333333;
+  --color-grey7: #232323;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-accent1: var(--color-grey7);
+  --color-accent2: var(--color-grey6);
+}

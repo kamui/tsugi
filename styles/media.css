@@ -1,0 +1,19 @@
+/*
+  Example:
+
+  @media (--smartphone) {
+    width: 100%;
+  }
+*/
+
+@custom-media --smartphone (max-width: 599px);
+@custom-media --smartphone-and-tablet (max-width: 999px);
+@custom-media --tablet (width >= 600px) and (width < 1000px);
+@custom-media --small-tablet (width >= 600px) and (width < 741px);
+@custom-media --large-tablet (width >= 741px) and (width < 1000px);
+@custom-media --tablet-and-desktop (min-width: 600px);
+@custom-media --large-tablet-and-desktop (min-width: 741px);
+@custom-media --desktop (min-width: 1000px);
+@custom-media --small-desktop (width >= 1000px) and (width < 1200px);
+@custom-media --large-desktop (min-width: 1200px);
+@custom-media --extra-large-desktop (min-width: 1600px);

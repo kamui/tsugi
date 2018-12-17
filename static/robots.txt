@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin
+Disallow: /api
+Disallow: /checkout
+
+User-agent: Halebot
+Disallow: /
+
+Sitemap: http://www.awaytravel.com/sitemap.xml.gz

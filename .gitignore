@@ -1,0 +1,32 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/tmp
+faviconData.json
+
+# caching
+.cache
+
+# docs
+docs/dist
+
+# testing
+/coverage
+junit.xml
+
+# bundle analyzer
+/bundles
+
+# production
+/build
+/dist
+/.next
+/static/public
+
+# misc
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/nbproject/private/
