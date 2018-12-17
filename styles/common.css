@@ -1,0 +1,202 @@
+@import "./media.css";
+@import "./typography.css";
+@import "./colors.css";
+@import-normalize;
+
+/* Apply border-box to all elements */
+*, *:before, *:after { box-sizing: border-box; }
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+}
+
+body, input, button, a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  :global &.modal-open {
+    overflow: hidden;
+    position: relative;
+
+    @media (--smartphone-and-tablet) {
+      position: fixed;
+      overflow-x: hidden;
+      overflow-y: scroll !important;
+    }
+  }
+}
+
+button {
+  -webkit-appearance: button;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+/* Disable focus states normally. */
+[data-keyboard="false"] {
+  *:focus {
+    outline: unset;
+    box-shadow: unset;
+  }
+  textarea:focus,
+  input:focus {
+    border: 1px solid accent1;
+  }
+}
+
+/* Enable focus state on keyboard navigation. */
+[data-keyboard="true"] {
+  *:focus {
+    outline: 1px solid grey4;
+    box-shadow: 0 0 0 1px white inset;
+  }
+  textarea:focus,
+  input:focus {
+    outline: unset;
+    box-shadow: unset;
+    border: 1px solid accent1;
+  }
+}
+
+:global .vanity80{
+  @mixin vanity80;
+}
+
+:global .vanity70{
+  @mixin vanity70;
+}
+
+:global .primary70 {
+  @mixin primary70;
+}
+
+:global .primary60 {
+  @mixin primary60;
+}
+
+:global .primary50 {
+  @mixin primary50;
+}
+
+:global .primary40 {
+  @mixin primary40;
+}
+
+:global .primary30 {
+  @mixin primary30;
+}
+
+:global .primary20 {
+  @mixin primary20;
+}
+
+:global .secondary60 {
+  @mixin secondary60;
+}
+
+:global .secondary50 {
+  @mixin secondary50;
+}
+
+:global .secondary40 {
+  @mixin secondary40;
+}
+
+:global .secondary30 {
+  @mixin secondary30;
+}
+
+:global .secondary20 {
+  @mixin secondary20;
+}
+
+:global .tertiary70 {
+  @mixin tertiary70;
+}
+
+:global .tertiary60 {
+  @mixin tertiary60;
+}
+
+:global .tertiary50 {
+  @mixin tertiary50;
+}
+
+:global .tertiary50Italic {
+  @mixin tertiary50Italic;
+}
+
+:global .tertiary40 {
+  @mixin tertiary40;
+}
+
+:global .tertiary40Italic {
+  @mixin tertiary40Italic;
+}
+
+:global .tertiary35 {
+  @mixin tertiary35;
+}
+
+:global .tertiary35Italic {
+  @mixin tertiary35Italic;
+}
+
+:global .tertiary30 {
+  @mixin tertiary30;
+}
+
+:global .tertiary30Italic {
+  @mixin tertiary30Italic;
+}
+
+:global .tertiary20 {
+  @mixin tertiary20;
+}
+
+:global .tertiary20Italic {
+  @mixin tertiary20Italic;
+}
+
+@define-mixin clearfix {
+  &:before {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@define-mixin list-with-tiles {
+  list-style: none;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@define-mixin list-tile {
+  float: left;
+  padding: 0 1%;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 40px;
+  text-align: center;
+}

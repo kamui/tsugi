@@ -1,0 +1,75 @@
+@import "../../media.css";
+@import "../../typography.css";
+
+.component {
+  position: relative;
+  height: 525px;
+  overflow: hidden;
+  text-align: center;
+
+  @media (--tablet-and-desktop) {
+    height: 550px;
+  }
+}
+
+.ctaContainer {
+  padding: 15px 0;
+}
+
+.copy {
+  max-width: 900px;
+  position: absolute;
+  width: 100%;
+
+  @media (--smartphone) {
+    padding: 0 20px;
+  }
+
+  @media (--tablet-and-desktop) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.title {
+  text-transform: none;
+  cursor: default;
+  margin-bottom: 15px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  white-space: normal;
+
+  @media (--tablet-and-desktop) {
+    letter-spacing: 0.01em;
+    line-height: 1;
+  }
+}
+
+.description {
+  @mixin tertiary50;
+  margin-bottom: 15px;
+  white-space: normal;
+
+  @media (--tablet-and-desktop) {
+    line-height: 1.5;
+  }
+}
+
+.secondary {
+  .copy {
+    .title {
+      @mixin primary60;
+      text-transform: none;
+    }
+  }
+}
+
+.center {
+  .copy {
+    @media (--tablet-and-desktop) {
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+    }
+  }
+}

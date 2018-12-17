@@ -1,0 +1,248 @@
+@import "media.css";
+
+@define-mixin typePrimary {
+  font-family: "Lyon Text Web";
+  font-style: normal;
+}
+
+@define-mixin typeSecondary {
+  font-family: "Lyon Text Web";
+  font-style: normal;
+  font-weight: 400;
+}
+
+@define-mixin typeTertiary {
+  font-family: "Graphik Web";
+  font-weight: normal;
+}
+
+@define-mixin typeVanity {
+  font-family: "Graphik Web";
+  font-weight: normal;
+}
+
+@define-mixin vanity80 {
+  @mixin typeVanity;
+  font-size: 36px;
+  line-height: 38px;
+  font-weight: normal;
+
+  @media (--tablet-and-desktop) {
+    font-size: 58px;
+    line-height: 58px;
+  }
+}
+
+@define-mixin vanity70 {
+  @mixin typeVanity;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: normal;
+
+  @media (--tablet-and-desktop) {
+    font-size: 42px;
+    line-height: 42px;
+  }
+}
+
+@define-mixin vanity60 {
+  @mixin typeVanity;
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: normal;
+}
+
+@define-mixin vanity40 {
+  @mixin typeVanity;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: normal;
+
+  @media (--tablet-and-desktop) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+@define-mixin primary70 {
+  @mixin typePrimary;
+  font-size: 30px;
+  line-height: 42px;
+  @media (--tablet-and-desktop) {
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
+
+@define-mixin primary65{
+  @mixin typePrimary;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: normal;
+}
+
+@define-mixin primary60 {
+  @mixin typePrimary;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: normal;
+
+  @media (--tablet-and-desktop) {
+    font-size: 20px;
+    line-height: 40px;
+  }
+}
+
+@define-mixin primary50 {
+  @mixin typePrimary;
+  font-size: 18px;
+  line-height: 24px;
+    font-weight: normal;
+}
+
+@define-mixin primary40 {
+  @mixin typePrimary;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: normal;
+}
+
+@define-mixin primary30 {
+  @mixin typePrimary;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+}
+
+@define-mixin primary20 {
+  @mixin typePrimary;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: normal;
+}
+
+@define-mixin secondary70 {
+  @mixin typeSecondary;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+@define-mixin secondary60 {
+  @mixin typeSecondary;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+@define-mixin secondary50 {
+  @mixin typeSecondary;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+@define-mixin secondary40 {
+  @mixin typeSecondary;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@define-mixin secondary30 {
+  @mixin typeSecondary;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@define-mixin secondary30Heavy {
+  @mixin secondary30;
+  font-weight: 900;
+}
+
+@define-mixin secondary20 {
+  @mixin typeSecondary;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@define-mixin tertiary70 {
+  @mixin typeTertiary;
+  font-size: 36px;
+  line-height: 60px;
+
+  @media (--tablet-and-desktop) {
+    font-size: 60px;
+    line-height: 56px;
+  }
+}
+
+@define-mixin tertiary60 {
+  @mixin typeTertiary;
+  font-size: 32px;
+  line-height: 24px;
+
+  @media (--tablet-and-desktop) {
+    font-size: 36px;
+    line-height: 38px;
+  }
+}
+
+@define-mixin tertiary50 {
+  @mixin typeTertiary;
+  font-size: 32px;
+  line-height: 32px;
+
+  @media (--tablet-and-desktop) {
+    font-size: 32px;
+  }
+}
+
+@define-mixin tertiary50Italic {
+  @mixin tertiary50;
+  font-style: italic;
+}
+
+@define-mixin tertiary40 {
+  @mixin typeTertiary;
+  font-size: 16px;
+  line-height: 24px;
+
+  @media (--tablet-and-desktop) {
+    font-size: 24px;
+  }
+}
+
+@define-mixin tertiary40Italic {
+  @mixin tertiary40;
+  font-style: italic;
+}
+
+@define-mixin tertiary35 {
+  @mixin typeTertiary;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+@define-mixin tertiary35Italic {
+  @mixin tertiary35;
+  font-style: italic;
+}
+
+@define-mixin tertiary30 {
+  @mixin typeTertiary;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+@define-mixin tertiary30Italic {
+  @mixin tertiary30;
+  font-style: italic;
+}
+
+@define-mixin tertiary20 {
+  @mixin typeTertiary;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+@define-mixin tertiary20Italic {
+  @mixin tertiary20;
+  font-style: italic;
+}

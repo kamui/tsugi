@@ -1,0 +1,53 @@
+{
+	"masterPicture": "static/favicons/favicon.png",
+	"iconsPath": "/static/favicons/",
+	"design": {
+		"ios": {
+			"pictureAspect": "noChange",
+			"assets": {
+				"ios6AndPriorIcons": false,
+				"ios7AndLaterIcons": false,
+				"precomposedIcons": false,
+				"declareOnlyDefaultIcon": true
+			}
+		},
+		"desktopBrowser": {},
+		"windows": {
+			"pictureAspect": "noChange",
+			"backgroundColor": "#00000",
+			"onConflict": "override",
+			"assets": {
+				"windows80Ie10Tile": false,
+				"windows10Ie11EdgeTiles": {
+					"small": false,
+					"medium": true,
+					"big": false,
+					"rectangle": false
+				}
+			}
+		},
+		"androidChrome": {
+			"pictureAspect": "noChange",
+			"themeColor": "#00000",
+			"manifest": {
+				"display": "standalone",
+				"orientation": "notSet",
+				"onConflict": "override",
+				"declared": true
+			},
+			"assets": {
+				"legacyIcon": false,
+				"lowResolutionIcons": false
+			}
+		},
+		"safariPinnedTab": {
+			"pictureAspect": "blackAndWhite",
+			"threshold": 59.375,
+			"themeColor": "#00000"
+		}
+	},
+	"settings": {
+		"scalingAlgorithm": "Mitchell",
+		"errorOnImageTooSmall": false
+	}
+}

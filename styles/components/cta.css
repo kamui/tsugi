@@ -1,0 +1,112 @@
+@import "../typography.css";
+@import "../colors.css";
+
+.component {
+  border: 1px solid transparent;
+  user-select: none;
+  text-align: center;
+}
+
+.block {
+  &.component {
+    display: block;
+    padding: 15px 40px;
+  }
+}
+
+.inline {
+  &.component {
+    display: inline-block;
+    padding: 15px 40px;
+  }
+}
+
+.link {
+  &.component {
+    border: none;
+    padding: 15px 0;
+    text-decoration: underline;
+  }
+}
+
+/* This only works if the parent is flex or inline-flex */
+.stretch {
+  &.component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.primary {
+  &.component {
+    @mixin primary30;
+    background: var(--color-black);
+    border: 1px solid transparent;
+    color: var(--color-white);
+    text-transform: uppercase;
+
+    &:focus, &:hover {
+      background: var(--color-accent1);
+      cursor: pointer;
+    }
+    &.link {
+      border: none;
+      background: none;
+      color: inherit;
+      text-transform: capitalize;
+      text-align: inherit;
+      &:focus, &:hover {
+        background: none;
+      }
+    }
+  }
+}
+
+.transparent {
+  &.component {
+    @mixin primary30;
+    background: transparent;
+    border: 3px solid var(--color-white);
+    color: var(--color-white);
+    text-transform: uppercase;
+    transition: background-color .75s, color .75s;
+
+    &:focus, &:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--color-white);
+      cursor: pointer;
+    }
+
+    &.link {
+      border: none;
+      background: none;
+      color: inherit;
+      text-align: inherit;
+      text-transform: capitalize;
+      &:focus, &:hover {
+        background: none;
+      }
+    }
+  }
+}
+
+.outline {
+  &.component {
+    @mixin primary30;
+    background: transparent;
+    border: 3px solid var(--color-grey7);
+    color: var(--color-grey7);
+    padding: 13px 38px;
+    text-transform: uppercase;
+    transition: background-color .5s, color .5s;
+
+    &:focus, &:hover {
+      background: var(--color-grey7);
+      color: var(--color-white);
+    }
+  }
+}
