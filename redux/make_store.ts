@@ -11,9 +11,7 @@ const rootReducer = combineReducers({
   currentPage: currentPageReducer,
 })
 
-let middleware = [
-  thunkMiddleware, /* needs to be first */
-]
+let middleware = [thunkMiddleware /* needs to be first */]
 
 // TODO: need to figure out a better way to conditionally
 // require this, where it's not bundled in production.
@@ -27,13 +25,13 @@ if (process.env.NODE_ENV !== "production" && isClient) {
   middleware = [...middleware, logger]
 }
 
-export default (initialState, options)  => {
+export default (initialState, options) => {
   initialState = setupPage(initialState, options)
 
   return createStore(
     rootReducer,
     fromJS(initialState),
-    applyMiddleware(...middleware),
+    applyMiddleware(...middleware)
   )
 }
 
@@ -42,7 +40,10 @@ function setupPage(initialState = {}, options) {
     ? pageParamsFromRequest(options.req)
     : pageParamsFromWindow()
 
-  const action = { type: ActionTypes.CURRENT_PAGE_CHANGED, ...currentPageParams }
+  const action = {
+    type: ActionTypes.CURRENT_PAGE_CHANGED,
+    ...currentPageParams,
+  }
   const currentPage = currentPageReducer(undefined, action)
 
   return Object.assign(initialState, { currentPage })

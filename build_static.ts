@@ -24,9 +24,10 @@ function buildStaticFiles() {
     const ext = path.extname(filename)
     const name = path.basename(filename, ext)
 
-    const newDir = dir === "static"
-      ? publicStaticDir // file is not in static subdirectory
-      :`${publicStaticDir}/${dir.replace(/.*static\//, "")}`
+    const newDir =
+      dir === "static"
+        ? publicStaticDir // file is not in static subdirectory
+        : `${publicStaticDir}/${dir.replace(/.*static\//, "")}`
 
     const hashedName = `${newDir}/${name}-${hash}${ext}`
 

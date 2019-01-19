@@ -2,7 +2,7 @@ import Document, { Head, Main, NextScript } from "next/document"
 import serverRequire from "tsugi/utils/server_require"
 import _static from "tsugi/lib/static"
 
-const { clientConfig } = serverRequire("tsugi/commonjs/config")
+const { clientConfig } = serverRequire("tsugi/commonjs/config.ts")
 
 class MyDocument extends Document {
   render() {
@@ -39,7 +39,7 @@ class MyDocument extends Document {
           <link
             rel="preload"
             href={_static(
-              "fonts/roboto-v18-latin/roboto-v18-latin-regular.woff",
+              "fonts/roboto-v18-latin/roboto-v18-latin-regular.woff"
             )}
             as="font"
             type="font/woff"
@@ -48,7 +48,7 @@ class MyDocument extends Document {
           <link
             rel="preload"
             href={_static(
-              "fonts/roboto-v18-latin/roboto-v18-latin-regular.woff2",
+              "fonts/roboto-v18-latin/roboto-v18-latin-regular.woff2"
             )}
             as="font"
             type="font/woff"
@@ -57,7 +57,7 @@ class MyDocument extends Document {
           <link
             rel="preload"
             href={_static(
-              "fonts/roboto-slab-v7-latin/roboto-slab-v7-latin-regular.woff",
+              "fonts/roboto-slab-v7-latin/roboto-slab-v7-latin-regular.woff"
             )}
             as="font"
             type="font/woff"
@@ -66,7 +66,7 @@ class MyDocument extends Document {
           <link
             rel="preload"
             href={_static(
-              "fonts/roboto-slab-v7-latin/roboto-slab-v7-latin-regular.woff2",
+              "fonts/roboto-slab-v7-latin/roboto-slab-v7-latin-regular.woff2"
             )}
             as="font"
             type="font/woff"
@@ -78,7 +78,7 @@ class MyDocument extends Document {
             type="text/javascript"
             dangerouslySetInnerHTML={{
               __html: `window.__TSUGI_CONFIG__ = ${JSON.stringify(
-                clientConfig,
+                clientConfig
               )}`,
             }}
           />

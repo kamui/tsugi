@@ -3,22 +3,31 @@ import PropTypes from "prop-types"
 import classNames from "classnames"
 import styles from "tsugi/styles/components/cta.css"
 
-const Cta = ({ align, children, className, href, isLink, layout, onClick, ...other }) => (
+const Cta = ({
+  align,
+  children,
+  className,
+  href,
+  isLink,
+  layout,
+  onClick,
+  ...other
+}) => (
   <a
-    className={ classNames(
+    className={classNames(
       "component",
       "cta-component",
       styles.component,
       className,
       styles[align],
       styles[layout],
-      isLink && styles.link,
-    ) }
-    href={ href }
-    onClick={ onClick }
-    { ...other }
+      isLink && styles.link
+    )}
+    href={href}
+    onClick={onClick}
+    {...other}
   >
-    { children }
+    {children}
   </a>
 )
 

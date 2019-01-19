@@ -15,9 +15,8 @@ const mapStateToProps = (state) => {
 }
 
 function wrapPageWithLayout(WrappedComponent) {
-
   if (WrappedComponent.getInitialProps == undefined) {
-    throw new Error(`${ WrappedComponent.name } does not define getInitialProps`)
+    throw new Error(`${WrappedComponent.name} does not define getInitialProps`)
   }
 
   class ApplicationLayout extends React.PureComponent {
@@ -33,22 +32,30 @@ function wrapPageWithLayout(WrappedComponent) {
       title: PropTypes.string.isRequired,
     }
 
-    static defaultProps = {
-    }
+    static defaultProps = {}
 
-    static getInitialProps = async ({ asPath, pathname, query, res, store }) => {
-      const pageRequest = WrappedComponent.getInitialProps({ pathname, query, store, res }) // current page data
+    static getInitialProps = async ({
+      asPath,
+      pathname,
+      query,
+      res,
+      store,
+    }) => {
+      const pageRequest = WrappedComponent.getInitialProps({
+        pathname,
+        query,
+        store,
+        res,
+      }) // current page data
       return {}
     }
 
     componentDidMount() {
       const {} = getConfig()
 
-      Router.onRouteChangeStart = (url) => {
-      }
+      Router.onRouteChangeStart = (url) => {}
 
-      Router.onRouteChangeComplete = (url) => {
-      }
+      Router.onRouteChangeComplete = (url) => {}
 
       window.addEventListener("popstate", this.onPopState)
     }
@@ -59,8 +66,7 @@ function wrapPageWithLayout(WrappedComponent) {
       window.removeEventListener("popstate", this.onPopState)
     }
 
-    onPopState = (e) => {
-    }
+    onPopState = (e) => {}
 
     render() {
       const {
@@ -72,37 +78,43 @@ function wrapPageWithLayout(WrappedComponent) {
       } = this.props
 
       if (errorStatusCode) {
-        return <Error statusCode={ errorStatusCode } />
+        return <Error statusCode={errorStatusCode} />
       }
 
       return (
         <div
           id="layout-wrapper"
-          className={ classNames(
-            styles.applicationLayout,
-          ) }
-          data-page-category={ pageCategory }
+          className={classNames(styles.applicationLayout)}
+          data-page-category={pageCategory}
         >
           <Head>
-            <title key="title">{ title }</title>
-            <link key="canonical" href={ `http://localhost:3001${ canonicalPath }` } rel="canonical" />
-            <meta key="meta-description" content="Example" name="description" property="og:description" />
+            <title key="title">{title}</title>
+            <link
+              key="canonical"
+              href={`http://localhost:3001${canonicalPath}`}
+              rel="canonical"
+            />
+            <meta
+              key="meta-description"
+              content="Example"
+              name="description"
+              property="og:description"
+            />
             {/* <link key="application-stylesheet" rel="stylesheet" type="text/css" href={ _static("application.bundle.css") } /> */}
           </Head>
-          <div className={ styles.mainContentContainer }>
-            <div className={ styles.topContent }></div>
+          <div className={styles.mainContentContainer}>
+            <div className={styles.topContent} />
 
-            { /* Page Content */ }
-            <div className={ styles.mainContent } id="main-content">
-              <WrappedComponent { ...this.props } />
+            {/* Page Content */}
+            <div className={styles.mainContent} id="main-content">
+              <WrappedComponent {...this.props} />
             </div>
 
-            <div className={ styles.bottomContent }>
-            </div>
+            <div className={styles.bottomContent} />
           </div>
 
           {/* TODO: remove */}
-          <div className={ styles.usedForRebuild }></div>
+          <div className={styles.usedForRebuild} />
         </div>
       )
     }
@@ -110,7 +122,7 @@ function wrapPageWithLayout(WrappedComponent) {
 
   return connect(
     mapStateToProps,
-    () => ({}),
+    () => ({})
   )(ApplicationLayout)
 }
 

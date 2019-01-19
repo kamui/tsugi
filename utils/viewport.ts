@@ -7,8 +7,7 @@ export const detectSmartphoneWidth = () => {
 
 export const detectTabletWidth = () => {
   // default to tablet on SSR
-  if (isServer)
-    return true
+  if (isServer) return true
 
   return detectViewportWidth() < tabletBreakpoint
 }
@@ -22,7 +21,10 @@ export const detectViewportWidth = () => {
 }
 
 export const detectViewportHeight = () => {
-  return Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+  return Math.max(
+    document.documentElement.clientHeight,
+    window.innerHeight || 0
+  )
 }
 
 export const getDocumentHeight = () => {
@@ -34,20 +36,18 @@ export const getDocumentHeight = () => {
     body.offsetHeight,
     html.clientHeight,
     html.scrollHeight,
-    html.offsetHeight,
+    html.offsetHeight
   )
 }
 
 export const setScrollTop = (topPosition) => {
-  if (!document || !document.documentElement || !document.body)
-    return
+  if (!document || !document.documentElement || !document.body) return
 
   document.documentElement.scrollTop = document.body.scrollTop = topPosition
 }
 
 export const getScrollTop = () => {
-  if (isServer)
-    return 0
+  if (isServer) return 0
 
   return window.pageYOffset || document.documentElement.scrollTop
 }

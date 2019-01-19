@@ -2,7 +2,6 @@ import Qs from "qs"
 import { fromJS } from "immutable"
 import { getClientSideLink } from "tsugi/utils/link"
 
-
 // TODO: remove the path default empty string
 // It's here because at runtime, we pull href's as the path and it can return undefined
 export const buildUrl = (path = "", newQueryString = {}) => {
@@ -29,18 +28,15 @@ export const stripQueryString = (url) => {
 export const removeAnchor = (url) => {
   const parts = (url || "").split("#")
 
-  if (parts.length == 1)
-    return parts[0]
+  if (parts.length == 1) return parts[0]
 
   const query = parts[1].split("?")
 
-  return query.length == 1
-    ? parts[0]
-    : [parts[0], query[1]].join("?")
+  return query.length == 1 ? parts[0] : [parts[0], query[1]].join("?")
 }
 
 export const extractQueryString = (url) => {
-  return url ? (url.split("?")[1] || "") : ""
+  return url ? url.split("?")[1] || "" : ""
 }
 
 export const extractQueryParams = (string) => {
@@ -66,11 +62,7 @@ export const getClientRouteLink = (path) => {
 
 export const getReferrerPathname = () => {
   // Default to homepage worse case scenario
-  if (
-    !window ||
-    !window.document ||
-    !window.document.createElement
-  ) {
+  if (!window || !window.document || !window.document.createElement) {
     return "/"
   }
   const hrefElem = window.document.createElement("a")

@@ -6,7 +6,6 @@ const COMMONS_JS_FILE = /^tsugi\/commonjs/i
 // https://arunoda.me/blog/ssr-and-server-only-modules
 export default function serverRequire(moduleName) {
   if (typeof window === "undefined" || process.env.APP_ENV === "test") {
-
     // Logic specific for files living under the commonjs directory. These
     // files don't get build and therefore the path needs to be explicit
     // to it's real location

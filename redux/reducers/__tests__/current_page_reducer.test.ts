@@ -12,7 +12,6 @@ const initialState = fromJS({
   url: "",
 })
 
-
 describe("Current Page Reducer", () => {
   describe("initial state", () => {
     it("sets an initial state when no state is given", () => {
@@ -94,6 +93,5 @@ describe("Current Page Reducer", () => {
     })
   })
 
-  describe("NAVIGATION_CLICKED", () => {
-  })
+  describe("NAVIGATION_CLICKED", () => {})
 })

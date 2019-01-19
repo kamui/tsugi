@@ -1,6 +1,10 @@
 const cluster = require("cluster")
 const numCPUs = require("os").cpus().length
-const { isDevelopmentLike, isProductionLike, port } = require("./commonjs/config")
+const {
+  isDevelopmentLike,
+  isProductionLike,
+  port,
+} = require("./commonjs/config.ts")
 
 if (cluster.isMaster) {
   // create a worker for each CPU
@@ -20,19 +24,20 @@ if (cluster.isMaster) {
   const Router = require("koa-router")
 
   // Middlewares
-  const cacheHeaders = require("./middlewares/cache_headers")
+  const cacheHeaders = require("./middlewares/cache_headers.ts")
   const compression = require("compression")
   const koaConnect = require("koa-connect")
 
   // Custom routes
-  const healthCheck = require("./routes/health_check")
-  const staticRoot = require("./routes/static_root")
-  const redirectsRouter = require("./routes/redirects")
+  const healthCheck = require("./routes/health_check.ts")
+  const staticRoot = require("./routes/static_root.ts")
+  const redirectsRouter = require("./routes/redirects.ts")
 
   const app = next({ dev: isDevelopmentLike })
   const handle = app.getRequestHandler()
 
-  app.prepare()
+  app
+    .prepare()
     .then(() => {
       const server = new Koa()
       const router = new Router()
