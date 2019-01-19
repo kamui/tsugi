@@ -13,7 +13,7 @@ const initialState = fromJS({
   url: "",
 })
 
-export default (state = initialState, action)  => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.CURRENT_PAGE_CHANGED:
       return state.merge({
@@ -30,7 +30,10 @@ export default (state = initialState, action)  => {
         scrollPosition: getScrollTop(),
       })
 
-      return state.setIn(["scrollPositionHistory", getBasePath(state.get("path"))], positions)
+      return state.setIn(
+        ["scrollPositionHistory", getBasePath(state.get("path"))],
+        positions
+      )
     }
 
     case ActionTypes.CLIENT_ROUTE_CHANGED:

@@ -33,7 +33,6 @@ const clientConfig = Map({
 
 exports.clientConfig = clientConfig.toJS()
 
-
 // Server application config
 const serverConfig = clientConfig.merge({
   port: process.env.PORT || "3001",

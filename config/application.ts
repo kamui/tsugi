@@ -1,6 +1,6 @@
 import { fromJS } from "immutable"
-import { isServer } from "tsugi/utils/client"
-import serverRequire from "tsugi/utils/server_require"
+import { isServer } from "tsugi/utils/client.ts"
+import serverRequire from "tsugi/utils/server_require.ts"
 
 // All config settings are set in commonjs/config
 //
@@ -11,7 +11,7 @@ let clientConfig
 
 export default function() {
   if (isServer) {
-    return serverRequire("tsugi/commonjs/config")
+    return serverRequire("tsugi/commonjs/config.ts")
   }
 
   // Set client config as immutable first time called to avoid mutation

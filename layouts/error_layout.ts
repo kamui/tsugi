@@ -7,9 +7,9 @@ import _static from "tsugi/lib/static"
 import styles from "tsugi/styles/layouts/error_layout.css"
 
 const ErrorLayout = ({ title, pageCategory, statusCode }) => (
-  <div id="layout-wrapper" data-page-category={ pageCategory }>
-    <div className={ styles.topContent }></div>
-    <CustomError statusCode= { statusCode } />
+  <div id="layout-wrapper" data-page-category={pageCategory}>
+    <div className={styles.topContent} />
+    <CustomError statusCode={statusCode} />
   </div>
 )
 

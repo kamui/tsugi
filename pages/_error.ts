@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { isClient } from "tsugi/utils/client"
 
 const Error = ({ err, statusCode }) => {
-
   // Prevent duplicate render for server-side error
   // https://github.com/zeit/next.js/issues/2573
   if (isClient && err && err.message === "500 - Internal Server Error.")
@@ -24,7 +23,11 @@ Error.propTypes = {
 }
 
 Error.getInitialProps = ({ err, res, jsonPageRes }) => {
-  const statusCode = res ? res.statusCode : (jsonPageRes ? jsonPageRes.status : null)
+  const statusCode = res
+    ? res.statusCode
+    : jsonPageRes
+    ? jsonPageRes.status
+    : null
   return { err, statusCode }
 }
 

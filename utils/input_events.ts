@@ -42,20 +42,21 @@ function handleTouchEvents() {
 function setTouchEventsSupported() {
   // Source: https://github.com/viljamis/feature.js/blob/master/feature.js
   const isTouchEventsSupported = !!(
-    ("ontouchstart" in window) ||
-    window.navigator &&
-    window.navigator.msPointerEnabled &&
-    window.MSGesture ||
-    window.DocumentTouch &&
-    document instanceof DocumentTouch
+    "ontouchstart" in window ||
+    (window.navigator &&
+      window.navigator.msPointerEnabled &&
+      window.MSGesture) ||
+    (window.DocumentTouch && document instanceof DocumentTouch)
   )
 
-  document.body.setAttribute("data-touch-events-supported", isTouchEventsSupported)
+  document.body.setAttribute(
+    "data-touch-events-supported",
+    isTouchEventsSupported
+  )
 }
 
 export const setCursorToEnd = (inputElement) => {
-  if (!inputElement)
-    return
+  if (!inputElement) return
 
   if (inputElement.setSelectionRange) {
     const inputLength = inputElement.value.length

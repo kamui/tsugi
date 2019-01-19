@@ -11,7 +11,8 @@ function cacheHeaders() {
       ctx.response.set("X-FRAME-OPTIONS", "SAMEORIGIN")
     }
 
-    if (STATIC_FILE.test(ctx.request.path)) { // cache static files
+    if (STATIC_FILE.test(ctx.request.path)) {
+      // cache static files
       ctx.response.set("Access-Control-Allow-Origin", "*")
 
       // Set cache-headers to 1year if file exist else 2min
@@ -22,7 +23,8 @@ function cacheHeaders() {
       } catch (err) {
         ctx.response.set("Cache-Control", "public, max-age=20")
       }
-    } else { // set default header for dynamic CDN
+    } else {
+      // set default header for dynamic CDN
       ctx.response.set("Cache-Control", "public, max-age=120, s-maxage=30") // Client: 2m, CDN/WAF: 30s
     }
 

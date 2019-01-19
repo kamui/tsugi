@@ -2,7 +2,7 @@ import asset from "next/asset"
 import manifest from "tsugi/static_manifest.json"
 import getConfig from "tsugi/config/application"
 
-export default (filename)  => {
+export default (filename) => {
   const assetFile = asset(filename)
   const { assetPrefix, isProductionLike } = getConfig()
 

@@ -1,5 +1,5 @@
 const Router = require("koa-router")
-const { apiUrl } = require("../commonjs/config")
+const { apiUrl } = require("../commonjs/config.ts")
 // const axios = require("axios")
 const Map = require("immutable").Map
 // const Redis = require("../commonjs/redis")
@@ -38,25 +38,25 @@ const cacheHealthCheck = async () => {
 }
 
 // Health check endpoint
-module.exports = new Router()
-  .get("/_dependency_health", async (ctx) => {
-    // Fire checks in parallel, join and wait until they have completed
-    const [apiResponse, cacheResponse] = await Promise.all(
-      [
-        apiHealthCheck(),
-        cacheHealthCheck(),
-      ],
-    )
+module.exports = new Router().get("/_dependency_health", async (ctx) => {
+  // Fire checks in parallel, join and wait until they have completed
+  const [apiResponse, cacheResponse] = await Promise.all([
+    apiHealthCheck(),
+    cacheHealthCheck(),
+  ])
 
-    // Build endpoint response
-    const data = Map({
-      now: Date.now().toString(),
-      status: apiResponse.get("api") === OK && cacheResponse.get("cache") === OK ? OK : FAILURES,
-    })
-
-    ctx.response.set({
-      "cache-control": "no-cache",
-      "Content-Type": "application/json",
-    })
-    ctx.response.body = data.merge(apiResponse, cacheResponse).toJS()
+  // Build endpoint response
+  const data = Map({
+    now: Date.now().toString(),
+    status:
+      apiResponse.get("api") === OK && cacheResponse.get("cache") === OK
+        ? OK
+        : FAILURES,
   })
+
+  ctx.response.set({
+    "cache-control": "no-cache",
+    "Content-Type": "application/json",
+  })
+  ctx.response.body = data.merge(apiResponse, cacheResponse).toJS()
+})

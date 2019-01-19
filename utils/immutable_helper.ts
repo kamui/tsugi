@@ -15,5 +15,7 @@ export const toDecamelizedJSON = (immutableObject, separator = "_") => {
 export const checkImmutable = (immutableObject, immutableType) => {
   return Iterable.isIterable(immutableObject)
     ? immutableObject
-    : (immutableType ? immutableType() : false)
+    : immutableType
+    ? immutableType()
+    : false
 }
