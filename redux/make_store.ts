@@ -5,13 +5,14 @@ import { combineReducers } from "redux-immutable"
 import { isClient } from "tsugi/utils/client"
 import ActionTypes from "tsugi/redux/action_types"
 import currentPageReducer from "tsugi/redux/reducers/current_page_reducer"
-import thunkMiddleware from "redux-thunk"
+import createSagaMiddleware from "redux-saga"
 
 const rootReducer = combineReducers({
   currentPage: currentPageReducer,
 })
 
-let middleware = [thunkMiddleware /* needs to be first */]
+const sagaMiddleware = createSagaMiddleware()
+let middleware = [sagaMiddleware /* needs to be first */]
 
 // TODO: need to figure out a better way to conditionally
 // require this, where it's not bundled in production.
