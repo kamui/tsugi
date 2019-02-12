@@ -1,9 +1,8 @@
-import asset from "next/asset"
 import manifest from "tsugi/static_manifest.json"
 import getConfig from "tsugi/config/application"
 
 export default (filename) => {
-  const assetFile = asset(filename)
+  const assetFile = `/static/${filename}`
   const { assetPrefix, isProductionLike } = getConfig()
 
   if (!isProductionLike) {
