@@ -31,13 +31,11 @@ module.exports = withTypescript(
       },
 
       webpack: (config, options) => {
-        ;(config.mode = isProductionLike ? "production" : "development"),
-          (config.devtool = options.dev
-            ? "cheap-module-inline-source-map"
-            : "hidden-source-map")
-
+        config.mode = isProductionLike ? "production" : "development"
+        config.devtool = options.dev
+          ? "cheap-module-inline-source-map"
+          : "hidden-source-map"
         config.plugins.push(new EnvironmentPlugin(process.env))
-
         return config
       },
     })
