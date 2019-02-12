@@ -1,7 +1,17 @@
-import React from "react"
+import React, { MouseEvent } from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames"
 import styles from "tsugi/styles/components/cta.css"
+
+export interface CtaProps {
+  align?: string
+  children: string
+  className?: string
+  href?: string
+  isLink?: boolean
+  layout?: string
+  onClick(e: MouseEvent<HTMLElement>): void
+}
 
 const Cta = ({
   align,
@@ -12,7 +22,7 @@ const Cta = ({
   layout,
   onClick,
   ...other
-}) => (
+}: CtaProps) => (
   <a
     className={classNames(
       "component",
