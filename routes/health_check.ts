@@ -1,7 +1,6 @@
 const Router = require("koa-router")
 const { apiUrl } = require("../commonjs/config.ts")
 // const axios = require("axios")
-const Map = require("immutable").Map
 // const Redis = require("../commonjs/redis")
 // const RedisClient = Redis.createClient()
 
@@ -27,13 +26,13 @@ const cacheHealthCheck = async () => {
     // await RedisClient.set("_dependency_health", OK)
     // const value = await RedisClient.get("_dependency_health")
 
-    return Map({
+    return {
       cache: value === OK ? OK : FAILURES,
-    })
+    }
   } catch (e) {
-    return Map({
+    return {
       cache: FAILURES,
-    })
+    }
   }
 }
 
@@ -41,22 +40,22 @@ const cacheHealthCheck = async () => {
 module.exports = new Router().get("/_dependency_health", async (ctx) => {
   // Fire checks in parallel, join and wait until they have completed
   const [apiResponse, cacheResponse] = await Promise.all([
-    apiHealthCheck(),
+    {}, // apiHealthCheck(),
     cacheHealthCheck(),
   ])
 
   // Build endpoint response
-  const data = Map({
+  const data = {
     now: Date.now().toString(),
     status:
       apiResponse.get("api") === OK && cacheResponse.get("cache") === OK
         ? OK
         : FAILURES,
-  })
+  }
 
   ctx.response.set({
     "cache-control": "no-cache",
     "Content-Type": "application/json",
   })
-  ctx.response.body = data.merge(apiResponse, cacheResponse).toJS()
+  ctx.response.body = Object.assign(data, apiResponse, cacheResponse)
 })

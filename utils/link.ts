@@ -1,8 +1,6 @@
-import { Map } from "immutable"
-
-export const getClientSideLink = (link) => {
-  return Map({
+export const getClientSideLink = (link: string) => {
+  return {
     as: link,
     href: link,
-  })
+  }
 }

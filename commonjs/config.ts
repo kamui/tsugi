@@ -1,5 +1,3 @@
-const { Map } = require("immutable")
-
 const environment = process.env.APP_ENV
 const isTest = environment === "test"
 const isDevelopment = environment === "development"
@@ -13,7 +11,7 @@ const isProductionLike = !isDevelopmentLike
 //
 // WARNING: make sure no application secrets are included here,
 // these variables are accessible on the client
-const clientConfig = Map({
+const clientConfig = {
   // Environments
   environment,
   isTest,
@@ -29,16 +27,19 @@ const clientConfig = Map({
   assetPrefix: process.env.ASSET_HOST || "",
   isFeatureMode: process.env.FEATURE_MODE,
   isStorybook: process.env.STORYBOOK,
-})
+}
 
-exports.clientConfig = clientConfig.toJS()
+exports.clientConfig = clientConfig
 
 // Server application config
-const serverConfig = clientConfig.merge({
-  port: process.env.PORT || "3001",
-})
+const serverConfig = Object.assign(
+  {
+    port: process.env.PORT || "3001",
+  },
+  clientConfig
+)
 
 // Make each server config var available as a named export
-serverConfig.forEach((value, key) => {
-  exports[key] = value
+Object.keys(serverConfig).forEach((key) => {
+  exports[key] = serverConfig[key]
 })

@@ -1,5 +1,4 @@
 import Qs from "qs"
-import { fromJS } from "immutable"
 import { getClientSideLink } from "tsugi/utils/link"
 
 // TODO: remove the path default empty string
@@ -54,10 +53,10 @@ export const buildHistoryUrl = (barePath, newQueryObject) => {
 export const getClientRouteLink = (path) => {
   const link = getClientSideLink(path)
 
-  return fromJS({
+  return {
     as: link.get("as"),
     url: link.get("href"),
-  })
+  }
 }
 
 export const getReferrerPathname = () => {

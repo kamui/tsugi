@@ -4,7 +4,11 @@ import PropTypes from "prop-types"
 import Cta from "tsugi/components/cta"
 import styles from "tsugi/styles/components/error_page/custom_error.css"
 
-const CustomError = ({ statusCode }) => (
+export interface CustomErrorProps {
+  statusCode: number
+}
+
+const CustomError = ({ statusCode }: CustomErrorProps) => (
   <div
     className={classNames(
       "component",
