@@ -1,8 +1,7 @@
-import { fromJS } from "immutable"
 import ActionTypes from "tsugi/redux/action_types"
 import currentPageReducer from "tsugi/redux/reducers/current_page_reducer"
 
-const initialState = fromJS({
+const initialState = {
   scrollPositionHistory: {},
   origin: "",
   path: "",
@@ -10,7 +9,7 @@ const initialState = fromJS({
   referrer: "",
   scrollToTop: false,
   url: "",
-})
+}
 
 describe("Current Page Reducer", () => {
   describe("initial state", () => {
@@ -29,7 +28,7 @@ describe("Current Page Reducer", () => {
 
   describe("CURRENT_PAGE_CHANGED", () => {
     const path = "/test"
-    const query = fromJS({ hello: "world" })
+    const query = { hello: "world" }
     const url = "/test?hello=world"
 
     const action = {
@@ -41,9 +40,9 @@ describe("Current Page Reducer", () => {
 
     const state = currentPageReducer(initialState, action)
 
-    expect(state.get("path")).toEqual(path)
-    expect(state.get("query")).toEqual(query)
-    expect(state.get("url")).toEqual(url)
+    expect(state.path).toEqual(path)
+    expect(state.query).toEqual(query)
+    expect(state.url).toEqual(url)
   })
 
   describe("CLIENT_ROUTE_CHANGED", () => {
@@ -60,9 +59,9 @@ describe("Current Page Reducer", () => {
 
     const state = currentPageReducer(initialState, action)
 
-    expect(state.get("path")).toEqual(pathname)
-    expect(state.get("origin")).toEqual(origin)
-    expect(state.get("url")).toEqual(`${origin}${pathname}`)
+    expect(state.path).toEqual(pathname)
+    expect(state.origin).toEqual(origin)
+    expect(state.url).toEqual(`${origin}${pathname}`)
   })
 
   describe("CLIENT_ROUTE_CHANGE_STARTED", () => {
@@ -83,13 +82,13 @@ describe("Current Page Reducer", () => {
         type: ActionTypes.CLIENT_ROUTE_CHANGE_STARTED,
       }
 
-      const state = initialState.set("path", "/page")
+      const state = (initialState.path = "/page")
 
       const newState = currentPageReducer(state, action)
-      const positions = newState.getIn(["scrollPositionHistory", "/page"])
+      const positions = (newState.scrollPositionHistory = "/page")
 
-      expect(positions.get("documentHeight")).toEqual(1000)
-      expect(positions.get("scrollPosition")).toEqual(500)
+      expect(positions.documentHeight).toEqual(1000)
+      expect(positions.scrollPosition).toEqual(500)
     })
   })
 

@@ -1,7 +1,5 @@
-import { fromJS } from "immutable"
 import { extractQueryParams } from "tsugi/utils/url"
-import { createStore, applyMiddleware } from "redux"
-import { combineReducers } from "redux-immutable"
+import { createStore, combineReducers, applyMiddleware } from "redux"
 import { isClient } from "tsugi/utils/client"
 import ActionTypes from "tsugi/redux/action_types"
 import currentPageReducer from "tsugi/redux/reducers/current_page_reducer"
@@ -20,23 +18,19 @@ let middleware = [sagaMiddleware /* needs to be first */]
 if (process.env.NODE_ENV !== "production" && isClient) {
   const createLogger = require("redux-logger").createLogger
   const logger = createLogger({
-    stateTransformer: (state) => state && state.toJS(), // readable immutable
+    stateTransformer: (state: object) => state,
   })
 
   middleware = [...middleware, logger]
 }
 
-export default (initialState, options) => {
+export default (initialState: object, options: object) => {
   initialState = setupPage(initialState, options)
 
-  return createStore(
-    rootReducer,
-    fromJS(initialState),
-    applyMiddleware(...middleware)
-  )
+  return createStore(rootReducer, initialState, applyMiddleware(...middleware))
 }
 
-function setupPage(initialState = {}, options) {
+function setupPage(initialState = {}, options: object) {
   const currentPageParams = options.isServer
     ? pageParamsFromRequest(options.req)
     : pageParamsFromWindow()
@@ -54,7 +48,7 @@ function pageParamsFromRequest(req = {}) {
   return {
     origin: req.hostname,
     path: req.path,
-    query: fromJS(req.query || {}),
+    query: req.query || {},
     referrer: req.header && req.header("Referrer"),
     url: `${req.protocol}://${req.headers && req.headers.host}${req.url}`,
   }
@@ -64,7 +58,7 @@ function pageParamsFromWindow() {
   return {
     origin: window.location.origin,
     path: window.location.pathname,
-    query: fromJS(extractQueryParams(window.location.search)),
+    query: extractQueryParams(window.location.search),
     referrer: document.referrer,
     url: window.location.href,
   }

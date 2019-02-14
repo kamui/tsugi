@@ -2,7 +2,12 @@ import ErrorLayout from "tsugi/layouts/error_layout"
 import PropTypes from "prop-types"
 import { isClient } from "tsugi/utils/client"
 
-const Error = ({ err, statusCode }) => {
+export interface ErrorProps {
+  err: object
+  statusCode: number
+}
+
+const Error = ({ err, statusCode }: ErrorProps) => {
   // Prevent duplicate render for server-side error
   // https://github.com/zeit/next.js/issues/2573
   if (isClient && err && err.message === "500 - Internal Server Error.")
