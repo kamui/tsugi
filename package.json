@@ -73,7 +73,7 @@
     "redux-saga": "^1.0.2",
     "skeleton-loader": "^2.0.0",
     "style-loader": "^0.23.1",
-    "trash": "^4.3.0",
+    "trash": "^5.0.0",
     "typescript": "^3.3.3333",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6"
@@ -81,7 +81,7 @@
   "devDependencies": {
     "@storybook/addon-actions": "^4.1.14",
     "@storybook/addon-info": "^4.1.14",
-    "@storybook/addon-links": "^4.1.14",
+    "@storybook/addon-links": "^5.0.1",
     "@storybook/addon-viewport": "^5.0.1",
     "@storybook/react": "^4.1.14",
     "babel-core": "^7.0.0-bridge.0",
