@@ -79,7 +79,7 @@
     "webpack": "^4.29.6"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^4.1.14",
+    "@storybook/addon-actions": "^5.0.1",
     "@storybook/addon-info": "^4.1.14",
     "@storybook/addon-links": "^5.0.1",
     "@storybook/addon-viewport": "^5.0.1",
