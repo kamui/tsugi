@@ -85,7 +85,7 @@
     "@storybook/addon-viewport": "^5.0.1",
     "@storybook/react": "^4.1.14",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^24.4.0",
+    "babel-jest": "^24.5.0",
     "cli-real-favicon": "^0.0.7",
     "cypress": "3.1.5",
     "emit-file-loader": "^0.0.2",
