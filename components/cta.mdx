@@ -1,0 +1,58 @@
+---
+name: Cta
+---
+
+import { Playground, PropsTable } from "docz"
+import Cta from "../components/cta"
+
+# Cta
+
+<PropsTable of={Cta} />
+
+## default - (block)
+
+<Cta onClick={() => alert("clicked")}>A Cta</Cta>
+
+## block
+
+<Playground>
+  <Cta align="block" onClick={() => alert("clicked")}>
+    A Cta
+  </Cta>
+</Playground>
+
+## inline
+
+<Playground>
+  <Cta align="inline" onClick={() => alert("clicked")}>
+    Inline
+  </Cta>
+</Playground>
+
+## stretch
+
+<Playground>
+  <div style={{ display: "flex", height: 50, width: 100 }}>
+    <Cta align="stretch" onClick={() => alert("clicked")}>
+      Fit
+    </Cta>
+  </div>
+</Playground>
+
+## transparent
+
+<Playground>
+  <div style={{ background: "black", padding: "30px" }}>
+    <Cta layout="transparent" onClick={() => alert("clicked")}>
+      Secondary
+    </Cta>
+  </div>
+</Playground>
+
+## outlined
+
+<Playground>
+  <Cta align="inline" layout="outline" onClick={() => alert("clicked")}>
+    Outline
+  </Cta>
+</Playground>

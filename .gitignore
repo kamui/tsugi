@@ -9,6 +9,7 @@ faviconData.json
 .cache
 
 # docs
+.docz
 docs/dist
 
 # testing
