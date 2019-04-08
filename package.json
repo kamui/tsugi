@@ -106,7 +106,7 @@
     "jest-enzyme": "^7.0.2",
     "jest-junit": "^6.3.0",
     "jest-localstorage-mock": "^2.4.0",
-    "mocha": "^6.0.2",
+    "mocha": "^6.1.1",
     "mocha-junit-reporter": "^1.21.0",
     "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0",
