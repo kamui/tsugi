@@ -72,7 +72,7 @@
     "skeleton-loader": "^2.0.0",
     "style-loader": "^0.23.1",
     "trash": "^5.2.0",
-    "typescript": "^3.4.4",
+    "typescript": "^3.4.5",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.30.0"
   },
