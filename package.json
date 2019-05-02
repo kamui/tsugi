@@ -89,7 +89,7 @@
     "cypress": "3.2.0",
     "docz": "^1.0.4",
     "docz-plugin-css": "^0.11.0",
-    "docz-theme-default": "^1.0.4",
+    "docz-theme-default": "^1.1.0",
     "emit-file-loader": "^0.0.2",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
