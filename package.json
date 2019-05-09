@@ -74,7 +74,7 @@
     "trash": "^5.2.0",
     "typescript": "^3.4.5",
     "uglifyjs-webpack-plugin": "^2.1.2",
-    "webpack": "^4.30.0"
+    "webpack": "^4.31.0"
   },
   "devDependencies": {
     "@emotion/cache": "^10.0.9",
