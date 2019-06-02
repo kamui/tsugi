@@ -5,8 +5,9 @@ module.exports = {
       "<rootDir>/tests/mocks/file_mock.js",
     "^tsugi/(.+)": "<rootDir>$1",
   },
+  preset: "jest-puppeteer",
   setupFiles: ["raf/polyfill", "jest-localstorage-mock"],
   setupFilesAfterEnv: ["./tests/setup_test_framework_script_file.ts"],
   testURL: "http://localhost",
-  testPathIgnorePatterns: ["/node_modules/", "/cypress"],
+  testPathIgnorePatterns: ["/node_modules/"],
 }
