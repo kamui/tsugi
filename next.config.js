@@ -8,9 +8,9 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")
 // const fs = require("fs")
 
 module.exports = withTypescript(
-  withBundleAnalyzer(
+  withCSS(
     withOffline(
-      withCSS({
+      withBundleAnalyzer({
         assetPrefix,
         cssModules: true,
         cssLoaderOptions: {
