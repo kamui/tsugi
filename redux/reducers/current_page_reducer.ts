@@ -13,10 +13,10 @@ const initialState = {
   url: "",
 }
 
-export default (state = initialState, action) => {
+export default (state: any = initialState, action: any) => {
   switch (action.type) {
     case ActionTypes.CURRENT_PAGE_CHANGED:
-      return produce(state, (draft: object) => {
+      return produce(state, (draft: any) => {
         draft.origin = action.origin
         draft.path = action.path
         draft.query = action.query || {}
@@ -30,13 +30,13 @@ export default (state = initialState, action) => {
         scrollPosition: getScrollTop(),
       }
 
-      return produce(state, (draft: object) => {
+      return produce(state, (draft: any) => {
         draft.scrollPositionHistory[getBasePath(state.path)] = positions
       })
     }
 
     case ActionTypes.CLIENT_ROUTE_CHANGED:
-      return produce(state, (draft) => {
+      return produce(state, (draft: any) => {
         draft.origin = window.location.origin
         draft.path = window.location.pathname
         draft.query = extractQueryParams(window.location.search)
@@ -48,7 +48,7 @@ export default (state = initialState, action) => {
       return state
 
     case ActionTypes.PAGE_LOADED:
-      return produce(state, (draft) => {
+      return produce(state, (draft: any) => {
         draft.scrollToTop = false
       })
 

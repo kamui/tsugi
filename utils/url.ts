@@ -15,16 +15,16 @@ export const buildUrl = (path = "", newQueryString = {}) => {
     : barePath
 }
 
-export const getBasePath = (path) => {
+export const getBasePath = (path: string) => {
   return stripQueryString(removeAnchor(path))
 }
 
-export const stripQueryString = (url) => {
+export const stripQueryString = (url: string) => {
   return url ? url.split("?")[0] : ""
 }
 
 // Remove anchor from url, preserving any query params
-export const removeAnchor = (url) => {
+export const removeAnchor = (url: string) => {
   const parts = (url || "").split("#")
 
   if (parts.length == 1) return parts[0]
@@ -34,15 +34,15 @@ export const removeAnchor = (url) => {
   return query.length == 1 ? parts[0] : [parts[0], query[1]].join("?")
 }
 
-export const extractQueryString = (url) => {
+export const extractQueryString = (url: string) => {
   return url ? url.split("?")[1] || "" : ""
 }
 
-export const extractQueryParams = (string) => {
+export const extractQueryParams = (string: string) => {
   return string ? Qs.parse(extractQueryString(string)) : {}
 }
 
-export const buildHistoryUrl = (barePath, newQueryObject) => {
+export const buildHistoryUrl = (barePath: string, newQueryObject: Object) => {
   const stringifiedQueryString = Qs.stringify(newQueryObject)
 
   return stringifiedQueryString.length
@@ -50,12 +50,12 @@ export const buildHistoryUrl = (barePath, newQueryObject) => {
     : barePath
 }
 
-export const getClientRouteLink = (path) => {
+export const getClientRouteLink = (path: string) => {
   const link = getClientSideLink(path)
 
   return {
-    as: link.get("as"),
-    url: link.get("href"),
+    as: link["as"],
+    url: link["href"],
   }
 }
 

@@ -2,8 +2,8 @@ import ErrorLayout from "tsugi/layouts/error_layout"
 import PropTypes from "prop-types"
 import { isClient } from "tsugi/utils/client"
 
-export interface ErrorProps {
-  err: object
+interface ErrorProps {
+  err?: Error
   statusCode: number
 }
 
@@ -27,12 +27,13 @@ Error.propTypes = {
   statusCode: PropTypes.number,
 }
 
-Error.getInitialProps = ({ err, res, jsonPageRes }) => {
+Error.getInitialProps = ({ err, res, jsonPageRes }: any) => {
   const statusCode = res
     ? res.statusCode
     : jsonPageRes
     ? jsonPageRes.status
     : null
+  console.log(`Render Error: ${statusCode}`)
   return { err, statusCode }
 }
 

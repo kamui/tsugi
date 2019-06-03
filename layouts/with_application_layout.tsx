@@ -5,16 +5,16 @@ import Router from "next/router"
 import Head from "next/head"
 import { connect } from "react-redux"
 import _static from "tsugi/lib/static"
-import Error from "tsugi/pages/_error"
-import getConfig from "tsugi/config/application"
+import ErrorPage from "tsugi/pages/_error"
+import getConfig from "tsugi/commonjs/config"
 import styles from "tsugi/styles/layouts/application_layout.css"
 import classNames from "classnames"
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return state
 }
 
-function wrapPageWithLayout(WrappedComponent) {
+function wrapPageWithLayout(WrappedComponent: any) {
   if (WrappedComponent.getInitialProps == undefined) {
     throw new Error(`${WrappedComponent.name} does not define getInitialProps`)
   }
@@ -34,39 +34,45 @@ function wrapPageWithLayout(WrappedComponent) {
 
     static defaultProps = {}
 
-    static getInitialProps = async ({
-      asPath,
-      pathname,
-      query,
-      res,
-      store,
-    }) => {
-      const pageRequest = WrappedComponent.getInitialProps({
-        pathname,
-        query,
-        store,
-        res,
-      }) // current page data
-      return {}
-    }
+    // static getInitialProps = async ({
+    //   // asPath,
+    //   pathname,
+    //   query,
+    //   res,
+    //   store,
+    // }: any) => {
+    //   const pageRequest = WrappedComponent.getInitialProps({
+    //     pathname,
+    //     query,
+    //     store,
+    //     res,
+    //   }) // current page data
+    //   return {}
+    // }
 
     componentDidMount() {
       const {} = getConfig()
 
-      Router.onRouteChangeStart = (url) => {}
+      Router.onRouteChangeStart = (url) => {
+        console.log(url)
+      }
 
-      Router.onRouteChangeComplete = (url) => {}
+      Router.onRouteChangeComplete = (url) => {
+        console.log(url)
+      }
 
       window.addEventListener("popstate", this.onPopState)
     }
 
     componentWillUnmount() {
-      Router.onRouteChangeComplete = null
-      Router.onRouteChangeStart = null
+      Router.onRouteChangeComplete = undefined
+      Router.onRouteChangeStart = undefined
       window.removeEventListener("popstate", this.onPopState)
     }
 
-    onPopState = (e) => {}
+    onPopState = (e: Event) => {
+      console.log(e)
+    }
 
     render() {
       const {
@@ -75,10 +81,10 @@ function wrapPageWithLayout(WrappedComponent) {
         pageCategory,
         title,
         isLoading,
-      } = this.props
-
+      }: any = this.props
+      console.log(`isLoading: ${isLoading}`)
       if (errorStatusCode) {
-        return <Error statusCode={errorStatusCode} />
+        return <ErrorPage statusCode={errorStatusCode} />
       }
 
       return (
@@ -126,7 +132,7 @@ function wrapPageWithLayout(WrappedComponent) {
   )(ApplicationLayout)
 }
 
-export default function withLayout(WrappedComponent) {
+export default function withLayout(WrappedComponent: any) {
   const pageWrappedWithLayout = wrapPageWithLayout(WrappedComponent)
   return connect()(pageWrappedWithLayout)
 }

@@ -18,19 +18,19 @@ let middleware = [sagaMiddleware /* needs to be first */]
 if (process.env.NODE_ENV !== "production" && isClient) {
   const createLogger = require("redux-logger").createLogger
   const logger = createLogger({
-    stateTransformer: (state: object) => state,
+    stateTransformer: (state: any) => state,
   })
 
   middleware = [...middleware, logger]
 }
 
-export default (initialState: object, options: object) => {
+export default (initialState: any, options: any) => {
   initialState = setupPage(initialState, options)
 
   return createStore(rootReducer, initialState, applyMiddleware(...middleware))
 }
 
-function setupPage(initialState = {}, options: object) {
+function setupPage(initialState = {}, options: any) {
   const currentPageParams = options.isServer
     ? pageParamsFromRequest(options.req)
     : pageParamsFromWindow()
@@ -44,7 +44,7 @@ function setupPage(initialState = {}, options: object) {
   return Object.assign(initialState, { currentPage })
 }
 
-function pageParamsFromRequest(req = {}) {
+function pageParamsFromRequest(req: any = {}) {
   return {
     origin: req.hostname,
     path: req.path,
