@@ -84,8 +84,8 @@ describe("Current Page Reducer", () => {
 
       const state = (initialState.path = "/page")
 
-      const newState = currentPageReducer(state, action)
-      const positions = (newState.scrollPositionHistory = "/page")
+      const newState: any = currentPageReducer(state, action)
+      const positions: any = (newState.scrollPositionHistory = "/page")
 
       expect(positions.documentHeight).toEqual(1000)
       expect(positions.scrollPosition).toEqual(500)

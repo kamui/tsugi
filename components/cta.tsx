@@ -11,6 +11,7 @@ export interface CtaProps {
   isLink?: boolean
   layout?: string
   onClick(e: MouseEvent<HTMLElement>): void
+  tabIndex?: string
 }
 
 const Cta = ({
@@ -21,21 +22,21 @@ const Cta = ({
   isLink,
   layout,
   onClick,
-  ...other
-}: CtaProps) => (
+}: // ...other
+CtaProps) => (
   <a
     className={classNames(
       "component",
       "cta-component",
       styles.component,
       className,
-      styles[align],
-      styles[layout],
+      align && styles[align],
+      layout && styles[layout],
       isLink && styles.link
     )}
     href={href}
     onClick={onClick}
-    {...other}
+    // {...other}
   >
     {children}
   </a>

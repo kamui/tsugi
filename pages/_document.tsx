@@ -1,13 +1,10 @@
-import Document, { Head, Main, NextScript } from "next/document"
-import serverRequire from "tsugi/utils/server_require"
+import Document, { Html, Head, Main, NextScript } from "next/document"
 import _static from "tsugi/lib/static"
-
-const { clientConfig } = serverRequire("tsugi/commonjs/config.ts")
 
 class MyDocument extends Document {
   render() {
     return (
-      <html lang="en-US">
+      <Html lang="en-US">
         <Head>
           <meta charSet="utf-8" />
           <meta content="width=device-width initial-scale=1" name="viewport" />
@@ -74,18 +71,10 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-              __html: `window.__TSUGI_CONFIG__ = ${JSON.stringify(
-                clientConfig
-              )}`,
-            }}
-          />
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }

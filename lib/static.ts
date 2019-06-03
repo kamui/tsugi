@@ -1,11 +1,13 @@
-import manifest from "tsugi/static_manifest.json"
-import getConfig from "tsugi/config/application"
+import manifestJson from "tsugi/static_manifest.json"
+import getConfig, { isProductionLike } from "tsugi/commonjs/config"
 
-export default (filename) => {
-  const assetFile = `/static/${filename}`
-  const { assetPrefix, isProductionLike } = getConfig()
+const manifest: any = manifestJson
 
-  if (!isProductionLike) {
+export default (filename: string): string => {
+  const assetFile: string = `/static/${filename}`
+  const { assetPrefix, environment }: any = getConfig()
+
+  if (!isProductionLike(environment)) {
     return assetFile
   }
 

@@ -1,4 +1,4 @@
-import keyMirror from "fbjs/lib/keyMirror"
+import keyMirror from "keyMirror"
 
 export default keyMirror({
   CLIENT_ROUTE_CHANGE_STARTED: null,

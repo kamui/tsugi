@@ -5,7 +5,7 @@ import App, { Container } from "next/app"
 import withRedux from "next-redux-wrapper"
 
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
+  static async getInitialProps({ Component, ctx }: any) {
     const pageProps = Component.getInitialProps
       ? await Component.getInitialProps(ctx)
       : {}
@@ -13,7 +13,8 @@ class MyApp extends App {
   }
 
   render() {
-    const { Component, pageProps, store } = this.props
+    const { Component, pageProps, store }: any = this.props
+
     return (
       <Container>
         <Provider store={store}>
