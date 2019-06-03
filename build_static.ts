@@ -1,4 +1,5 @@
-const fs = require("fs-extra")
+import fs from "fs-extra"
+// const fs = require("fs-extra")
 const path = require("path")
 const md5 = require("md5-file")
 const glob = require("glob")
@@ -17,7 +18,7 @@ function buildStaticFiles() {
   })
 
   // Process static files
-  files.forEach((filename) => {
+  files.forEach((filename: string) => {
     const hash = md5.sync(filename)
 
     const dir = path.dirname(filename)

@@ -5,7 +5,7 @@ const STATIC_FILE = /^\/static\/(public|fonts|favicons)\//
 const NEXT_OR_STATIC_FILES = /^(\/_next\/|\/static\/)/
 
 function cacheHeaders() {
-  return (ctx, next) => {
+  return (ctx: any, next: any) => {
     // We need to set X-FRAME-OPTIONS for all requests (excluding _next or static requests) to prevent clickjacking attempts
     if (!NEXT_OR_STATIC_FILES.test(ctx.request.path)) {
       ctx.response.set("X-FRAME-OPTIONS", "SAMEORIGIN")

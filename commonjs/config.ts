@@ -1,45 +1,30 @@
-const environment = process.env.APP_ENV
-const isTest = environment === "test"
-const isDevelopment = environment === "development"
-const isReview = environment === "review"
-const isStaging = environment === "staging"
-const isProduction = environment === "production"
-const isDevelopmentLike = isDevelopment || isTest
-const isProductionLike = !isDevelopmentLike
+import getConfig from "next/config"
 
-// Client application config
-//
-// WARNING: make sure no application secrets are included here,
-// these variables are accessible on the client
-const clientConfig = {
-  // Environments
-  environment,
-  isTest,
-  isDevelopment,
-  isReview,
-  isStaging,
-  isProduction,
-  isDevelopmentLike,
-  isProductionLike,
-
-  // Config from env vars
-  apiUrl: process.env.BACKEND_API_URL,
-  assetPrefix: process.env.ASSET_HOST || "",
-  isFeatureMode: process.env.FEATURE_MODE,
-  isStorybook: process.env.STORYBOOK,
+export default (): any => {
+  // There's a bug here where getConfig() returns undefined
+  const { publicRuntimeConfig = {} }: any = getConfig()
+  console.log(`publicRuntimeConfig": ${publicRuntimeConfig}`)
+  return publicRuntimeConfig
 }
 
-exports.clientConfig = clientConfig
-
-// Server application config
-const serverConfig = Object.assign(
-  {
-    port: process.env.PORT || "3001",
-  },
-  clientConfig
-)
-
-// Make each server config var available as a named export
-Object.keys(serverConfig).forEach((key) => {
-  exports[key] = serverConfig[key]
-})
+export const isTest = (environment: string): boolean => {
+  return environment === "test"
+}
+export const isDevelopment = (environment: string): boolean => {
+  return environment === "development"
+}
+export const isReview = (environment: string): boolean => {
+  return environment === "review"
+}
+export const isStaging = (environment: string): boolean => {
+  return environment === "staging"
+}
+export const isProduction = (environment: string): boolean => {
+  return environment === "production"
+}
+export const isDevelopmentLike = (environment: string): boolean => {
+  return isDevelopment(environment) || isTest(environment)
+}
+export const isProductionLike = (environment: string): boolean => {
+  return !isDevelopmentLike(environment)
+}

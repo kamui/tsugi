@@ -40,7 +40,7 @@ export const getDocumentHeight = () => {
   )
 }
 
-export const setScrollTop = (topPosition) => {
+export const setScrollTop = (topPosition: number) => {
   if (!document || !document.documentElement || !document.body) return
 
   document.documentElement.scrollTop = document.body.scrollTop = topPosition
