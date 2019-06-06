@@ -93,7 +93,7 @@
     "@types/koa-router": "^7.0.40",
     "@types/next": "^8.0.5",
     "@types/next-redux-wrapper": "^2.0.2",
-    "@types/node": "^12.0.4",
+    "@types/node": "^12.0.5",
     "@types/qs": "^6.5.3",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
