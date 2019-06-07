@@ -1,7 +1,7 @@
 import Router from "koa-router"
 
 // const axios = require("axios")
-// const Redis = require("../commonjs/redis")
+// const Redis = require("../lib/redis")
 // const RedisClient = Redis.createClient()
 
 // const apiUrl: string | undefined = process.env.BACKEND_API_URL

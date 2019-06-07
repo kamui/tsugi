@@ -1,5 +1,5 @@
 import manifestJson from "tsugi/static_manifest.json"
-import getConfig, { isProductionLike } from "tsugi/commonjs/config"
+import getConfig, { isProductionLike } from "tsugi/lib/config"
 
 const manifest: any = manifestJson
 

@@ -3,7 +3,8 @@ const withTypescript = require("@zeit/next-typescript")
 const withCSS = require("@zeit/next-css")
 const withOffline = require("next-offline")
 const withBundleAnalyzer = require("@next/bundle-analyzer")
-const { isProductionLike } = require("./commonjs/config.ts")
+const { isProductionLike } = require("./lib/config.ts")
+const { publicRuntimeConfig } = require("./lib/runtime_config.ts")
 // const fs = require("fs")
 
 module.exports = withTypescript(
@@ -17,11 +18,7 @@ module.exports = withTypescript(
           localIdentName: "[local]---[hash:base64:5]",
         },
         distDir: "build",
-        publicRuntimeConfig: {
-          environment: process.env.APP_ENV,
-          apiUrl: process.env.BACKEND_API_URL,
-          assetPrefix: process.env.ASSET_HOST || "",
-        },
+        publicRuntimeConfig,
 
         analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),
         analyzeBrowser: ["browser", "both"].includes(
