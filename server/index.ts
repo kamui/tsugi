@@ -4,7 +4,7 @@ import Router from "koa-router"
 import healthCheck from "./routes/health_check"
 import staticRoot from "./routes/static_root"
 import redirectsRouter from "./routes/redirects"
-import { isDevelopmentLike, isProductionLike } from "../commonjs/config"
+import { isDevelopmentLike, isProductionLike } from "../lib/config"
 
 const cluster = require("cluster")
 const numCPUs = require("os").cpus().length

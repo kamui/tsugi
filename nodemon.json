@@ -1,4 +1,4 @@
 {
-  "watch": ["server", "commonjs", "static", "router"],
+  "watch": ["server", "static", "router"],
   "exec": "ts-node --project tsconfig.server.json server/index.ts"
 }

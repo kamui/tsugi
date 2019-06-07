@@ -1,9 +1,11 @@
 import getConfig from "next/config"
+import configMap from "./runtime_config"
 
 export default (): any => {
-  // There's a bug here where getConfig() returns undefined
-  const { publicRuntimeConfig = {} }: any = getConfig()
-  console.log(`publicRuntimeConfig": ${publicRuntimeConfig}`)
+  const { publicRuntimeConfig }: any = getConfig()
+  if (!publicRuntimeConfig) {
+    return configMap.publicRuntimeConfig
+  }
   return publicRuntimeConfig
 }
 

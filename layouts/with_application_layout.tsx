@@ -6,7 +6,7 @@ import Head from "next/head"
 import { connect } from "react-redux"
 import _static from "tsugi/lib/static"
 import ErrorPage from "tsugi/pages/_error"
-import getConfig from "tsugi/commonjs/config"
+import getConfig from "tsugi/lib/config"
 import styles from "tsugi/styles/layouts/application_layout.css"
 import classNames from "classnames"
 
