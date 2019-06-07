@@ -2,7 +2,7 @@
 @import "../common.css";
 @import "../media.css";
 
-.applicationLayout {
+.main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -18,8 +18,9 @@
 }
 
 /* IE11 Hack for no flexbox support */
-@media all and (-ms-high-contrast:none) {
-  *::-ms-backdrop, .applicationLayout {
+@media all and (-ms-high-contrast: none) {
+  *::-ms-backdrop,
+  .applicationLayout {
     display: block;
   }
 }
@@ -27,7 +28,7 @@
 .pageContent {
   position: relative;
 
-  @media(--desktop) {
+  @media (--desktop) {
     display: flex;
     flex-direction: row;
   }
@@ -36,22 +37,23 @@
 .mainContentContainer {
   display: flex;
   flex-direction: column;
-  flex-shrink:2;
-  flex-grow:2;
+  flex-shrink: 2;
+  flex-grow: 2;
   min-height: 100vh;
-  @media(--desktop) {
+  @media (--desktop) {
     width: calc(100% - 200px);
   }
 }
 
 /*IE11 support for sticky alternative*/
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+@media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
   .mainContent {
     flex: 1 0 auto;
   }
   .mainContentContainer {
     margin-top: 60px;
-    @media(--desktop) {
+    @media (--desktop) {
       margin-left: 200px;
     }
   }

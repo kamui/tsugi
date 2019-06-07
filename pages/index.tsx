@@ -1,6 +1,10 @@
-import withApplicationLayout from "tsugi/layouts/with_application_layout"
+import Main from "tsugi/layouts/main"
 
-const Homepage = () => <div>Hello World!</div>
+const Homepage = ({ canonicalPath, pageCategory, title }: any) => (
+  <Main canonicalPath={canonicalPath} pageCategory={pageCategory} title={title}>
+    <p>Hello World!</p>
+  </Main>
+)
 
 Homepage.getInitialProps = ({ pathname, store }: any) => {
   console.log("Homepage")
@@ -13,4 +17,4 @@ Homepage.getInitialProps = ({ pathname, store }: any) => {
   }
 }
 
-export default withApplicationLayout(Homepage)
+export default Homepage

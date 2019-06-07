@@ -1,4 +1,4 @@
-import ErrorLayout from "tsugi/layouts/error_layout"
+import ErrorLayout from "tsugi/layouts/error"
 import PropTypes from "prop-types"
 import { isClient } from "tsugi/utils/client"
 
