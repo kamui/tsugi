@@ -2,15 +2,16 @@ const { EnvironmentPlugin } = require("webpack")
 const withTypescript = require("@zeit/next-typescript")
 const withCSS = require("@zeit/next-css")
 const withOffline = require("next-offline")
-const withBundleAnalyzer = require("@next/bundle-analyzer")
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+})
 const { isProductionLike } = require("./lib/config.ts")
 const { publicRuntimeConfig } = require("./lib/runtime_config.ts")
-// const fs = require("fs")
 
-module.exports = withTypescript(
-  withCSS(
+module.exports = withBundleAnalyzer(
+  withTypescript(
     withOffline(
-      withBundleAnalyzer({
+      withCSS({
         assetPrefix: process.env.ASSET_HOST || "",
         cssModules: true,
         cssLoaderOptions: {
@@ -19,21 +20,6 @@ module.exports = withTypescript(
         },
         distDir: "build",
         publicRuntimeConfig,
-
-        analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),
-        analyzeBrowser: ["browser", "both"].includes(
-          process.env.BUNDLE_ANALYZE
-        ),
-        bundleAnalyzerConfig: {
-          server: {
-            analyzerMode: "static",
-            reportFilename: "../bundles/server.html",
-          },
-          browser: {
-            analyzerMode: "static",
-            reportFilename: "../bundles/client.html",
-          },
-        },
 
         webpack: (config, options) => {
           config.mode = isProductionLike ? "production" : "development"
