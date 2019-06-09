@@ -22,7 +22,9 @@ module.exports = withBundleAnalyzer(
         publicRuntimeConfig,
 
         webpack: (config, options) => {
-          config.mode = isProductionLike ? "production" : "development"
+          config.mode = isProductionLike(process.env.environment)
+            ? "production"
+            : "development"
           config.devtool = options.dev
             ? "cheap-module-inline-source-map"
             : "hidden-source-map"
