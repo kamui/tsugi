@@ -75,7 +75,7 @@ class Main extends React.PureComponent {
       errorStatusCode,
       pageCategory,
       title,
-      isLoading,
+      // isLoading,
       children,
     }: any = this.props
 
