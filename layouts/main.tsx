@@ -78,7 +78,7 @@ class Main extends React.PureComponent {
       isLoading,
       children,
     }: any = this.props
-    console.log(`styles.main: ${JSON.stringify(styles)}`)
+
     if (errorStatusCode) {
       return <ErrorPage statusCode={errorStatusCode} />
     }
