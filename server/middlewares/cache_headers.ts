@@ -1,5 +1,5 @@
-const fs = require("fs")
-const path = require("path")
+import fs from "fs"
+import path from "path"
 
 const STATIC_FILE = /^\/static\/(public|fonts|favicons)\//
 const NEXT_OR_STATIC_FILES = /^(\/_next\/|\/static\/)/
@@ -32,4 +32,4 @@ function cacheHeaders() {
   }
 }
 
-module.exports = cacheHeaders
+export default cacheHeaders

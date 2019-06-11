@@ -1,6 +1,5 @@
 import { Context } from "koa"
-// import { join } from "path"
-const join = require("path")
+import { join } from "path"
 
 // Keys are static paths, values are headers
 const ROOT_STATIC_FILES: { [path: string]: { [key: string]: string } } = {
