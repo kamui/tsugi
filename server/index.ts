@@ -5,10 +5,12 @@ import healthCheck from "./routes/health_check"
 import staticRoot from "./routes/static_root"
 import redirectsRouter from "./routes/redirects"
 import { isDevelopmentLike, isProductionLike } from "../lib/config"
+import cacheHeaders from "./middlewares/cache_headers"
 import koaCompress from "koa-compress"
+import cluster from "cluster"
+import { cpus } from "os"
 
-const cluster = require("cluster")
-const numCPUs = require("os").cpus().length
+const numCPUs: number = cpus().length
 
 const port = process.env.PORT || "3001"
 const environment = process.env.environment || "development"
@@ -25,7 +27,6 @@ if (cluster.isMaster) {
     cluster.fork()
   })
 } else {
-  const cacheHeaders = require("./middlewares/cache_headers.ts")
   const app = next({ dev: isDevelopmentLike(environment) })
   const handle = app.getRequestHandler()
 
