@@ -5,6 +5,7 @@ import healthCheck from "./routes/health_check"
 import staticRoot from "./routes/static_root"
 import redirectsRouter from "./routes/redirects"
 import { isDevelopmentLike, isProductionLike } from "../lib/config"
+import koaCompress from "koa-compress"
 
 const cluster = require("cluster")
 const numCPUs = require("os").cpus().length
@@ -24,20 +25,7 @@ if (cluster.isMaster) {
     cluster.fork()
   })
 } else {
-  // const next = require("next")
-  // const Koa = require("koa")
-  // const Router = require("koa-router")
-
-  // Middlewares
   const cacheHeaders = require("./middlewares/cache_headers.ts")
-  const compression = require("compression")
-  const koaConnect = require("koa-connect")
-
-  // Custom routes
-  // const healthCheck = require("./routes/health_check.ts")
-  // const staticRoot = require("./routes/static_root.ts")
-  // const redirectsRouter = require("./routes/redirects.ts")
-
   const app = next({ dev: isDevelopmentLike(environment) })
   const handle = app.getRequestHandler()
 
@@ -48,7 +36,7 @@ if (cluster.isMaster) {
       const router = new Router()
 
       // Middlewares
-      server.use(koaConnect(compression()))
+      server.use(compress())
       if (isProductionLike(environment)) {
         server.use(cacheHeaders())
       }
