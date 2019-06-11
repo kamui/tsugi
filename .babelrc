@@ -31,7 +31,7 @@
         "alias": {
           "tsugi": "./"
         },
-        "extensions": [".js", ".svg"]
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".svg"]
       }
     ],
     [
