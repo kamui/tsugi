@@ -1,6 +1,6 @@
 import { css } from "docz-plugin-css"
 
-module.exports = {
+export default {
   title: "Docz Typescript",
   typescript: true,
   plugins: [
