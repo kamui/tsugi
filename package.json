@@ -134,6 +134,9 @@
     "caniuse-lite": "^1.0.30000936",
     "prop-types": "^15.7.1"
   },
+  "resolutions": {
+    "docz/**/webpack": "4.33.0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
