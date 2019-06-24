@@ -127,7 +127,7 @@
     "react-test-renderer": "^16.8.6",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
-    "webpack-cli": "^3.3.4"
+    "webpack-cli": "^3.3.5"
   },
   "peerDependencies": {
     "@babel/runtime": "7.3.1",
