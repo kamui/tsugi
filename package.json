@@ -88,7 +88,7 @@
     "@types/keymirror": "^0.1.1",
     "@types/koa": "^2.0.48",
     "@types/koa-compress": "^2.0.9",
-    "@types/koa-router": "^7.0.41",
+    "@types/koa-router": "^7.0.42",
     "@types/next": "^8.0.5",
     "@types/next-redux-wrapper": "^2.0.2",
     "@types/node": "^12.0.10",
