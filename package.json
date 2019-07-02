@@ -81,7 +81,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^8.1.0",
     "@types/classnames": "^2.2.8",
-    "@types/enzyme": "^3.9.4",
+    "@types/enzyme": "^3.10.1",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/fs-extra": "^8.0.0",
     "@types/jest": "^24.0.15",
