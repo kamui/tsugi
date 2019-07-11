@@ -5,8 +5,8 @@ const withOffline = require("next-offline")
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 })
-const { isProductionLike } = require("./lib/config.ts")
-const { publicRuntimeConfig } = require("./lib/runtime_config.ts")
+const { isProductionLike } = require("./dist/lib/config.js")
+const { publicRuntimeConfig } = require("./dist/lib/runtime_config.js")
 
 module.exports = withBundleAnalyzer(
   withTypescript(

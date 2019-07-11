@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "build": "tsc -p tsconfig.server.json && ts-node build_static.js && next build",
+    "build": "tsc -p tsconfig.server.json && next build",
     "start": "ts-node --project tsconfig.server.json server/index.ts",
     "bundle-analyze": "ANALYZE=true NODE_ENV=production yarn build",
     "test": "APP_ENV=test jest",
