@@ -9,9 +9,24 @@ import ErrorPage from "tsugi/pages/_error"
 import getConfig from "tsugi/lib/config"
 import styles from "tsugi/styles/layouts/main.css"
 import classNames from "classnames"
+import {
+  pageLoaded,
+  navigationClicked,
+} from "tsugi/redux/actions/current_page_actions"
 
 const mapStateToProps = (state: any) => {
   return state
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    onClickButton: () => {
+      dispatch(navigationClicked("shop"))
+    },
+    onMount: () => {
+      dispatch(pageLoaded())
+    },
+  }
 }
 
 class Main extends React.PureComponent {
@@ -23,11 +38,16 @@ class Main extends React.PureComponent {
     canonicalPath: PropTypes.string,
     errorStatusCode: PropTypes.number,
     isLoading: PropTypes.bool,
+    onClickButton: PropTypes.func,
+    onMount: PropTypes.func,
     pageCategory: PropTypes.string,
     title: PropTypes.string,
   }
 
-  static defaultProps = {}
+  static defaultProps = {
+    onClickButton: () => {},
+    onMount: () => {},
+  }
 
   // static getInitialProps = async ({
   //   // asPath,
@@ -47,6 +67,9 @@ class Main extends React.PureComponent {
 
   componentDidMount() {
     const {} = getConfig()
+    const { onMount }: any = this.props
+
+    onMount()
 
     Router.onRouteChangeStart = (url) => {
       console.log(url)
@@ -77,6 +100,7 @@ class Main extends React.PureComponent {
       title,
       // isLoading,
       children,
+      onClickButton,
     }: any = this.props
 
     if (errorStatusCode) {
@@ -105,14 +129,19 @@ class Main extends React.PureComponent {
           {/* <link key="application-stylesheet" rel="stylesheet" type="text/css" href={ _static("application.bundle.css") } /> */}
         </Head>
         <div className={styles.mainContentContainer}>
-          <div className={styles.topContent} />
+          <div className={styles.topContent}>
+            <div>HEADER GOES HERE</div>
+          </div>
 
           {/* Page Content */}
           <div className={styles.mainContent} id="main-content">
             {children}
+            <button onClick={onClickButton}>click me</button>
           </div>
 
-          <div className={styles.bottomContent} />
+          <div className={styles.bottomContent}>
+            <div>FOOTER GOES HERE</div>
+          </div>
         </div>
 
         {/* TODO: remove */}
@@ -124,5 +153,5 @@ class Main extends React.PureComponent {
 
 export default connect(
   mapStateToProps,
-  () => ({})
+  mapDispatchToProps
 )(Main)

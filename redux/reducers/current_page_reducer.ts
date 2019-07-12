@@ -11,6 +11,7 @@ const initialState = {
   referrer: "",
   scrollToTop: false,
   url: "",
+  isLoaded: false,
 }
 
 export default (state: any = initialState, action: any) => {
@@ -49,7 +50,7 @@ export default (state: any = initialState, action: any) => {
 
     case ActionTypes.PAGE_LOADED:
       return produce(state, (draft: any) => {
-        draft.scrollToTop = false
+        ;(draft.scrollToTop = false), (draft.isLoaded = true)
       })
 
     default:
