@@ -16,7 +16,9 @@
     "test:integration": "jest -c integration/jest.config.js",
     "test:integration:watch": "jest -c integration/jest.config.js --watch",
     "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "docz:build": "docz build",
+    "clean-node": "rm -rf node_modules/",
+    "clean-next": "rm -rf build/ dist/"
   },
   "dependencies": {
     "@babel/cli": "7.5.0",
@@ -29,7 +31,6 @@
     "@babel/preset-env": "7.5.4",
     "@babel/preset-react": "7.0.0",
     "@zeit/next-css": "0.2.1-canary.4",
-    "@zeit/next-typescript": "^1.1.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-inline-react-svg": "^1.1.0",
@@ -49,7 +50,7 @@
     "koa-connect": "^2.0.1",
     "koa-router": "^7.4.0",
     "md5-file": "^4.0.0",
-    "next": "^8.1.0",
+    "next": "^9.0.1",
     "next-offline": "^4.0.2",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "postcss": "^7.0.17",
@@ -81,7 +82,7 @@
   "devDependencies": {
     "@next/bundle-analyzer": "^9.0.0",
     "@types/classnames": "^2.2.9",
-    "@types/enzyme": "^3.10.1",
+    "@types/enzyme": "^3.10.2",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/fs-extra": "^8.0.0",
     "@types/jest": "^24.0.15",
@@ -89,9 +90,8 @@
     "@types/koa": "^2.0.49",
     "@types/koa-compress": "^2.0.9",
     "@types/koa-router": "^7.0.42",
-    "@types/next": "^8.0.6",
     "@types/next-redux-wrapper": "^2.0.2",
-    "@types/node": "^12.6.1",
+    "@types/node": "^12.6.2",
     "@types/qs": "^6.5.3",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
