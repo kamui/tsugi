@@ -65,26 +65,22 @@ class Main extends React.PureComponent {
   //   return {}
   // }
 
+  onRouteChangeStart() {}
+  onRouteChangeComplete() {}
+
   componentDidMount() {
     const {} = getConfig()
     const { onMount }: any = this.props
 
     onMount()
-
-    Router.onRouteChangeStart = (url) => {
-      console.log(url)
-    }
-
-    Router.onRouteChangeComplete = (url) => {
-      console.log(url)
-    }
-
+    Router.events.on("routeChangeStart", this.onRouteChangeStart)
+    Router.events.on("routeChangeComplete", this.onRouteChangeComplete)
     window.addEventListener("popstate", this.onPopState)
   }
 
   componentWillUnmount() {
-    Router.onRouteChangeComplete = undefined
-    Router.onRouteChangeStart = undefined
+    Router.events.off("routeChangeStart", this.onRouteChangeStart)
+    Router.events.off("routeChangeComplete", this.onRouteChangeComplete)
     window.removeEventListener("popstate", this.onPopState)
   }
 

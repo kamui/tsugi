@@ -18,11 +18,5 @@
     "strict": true /* Enable all strict type-checking options. */,
     "target": "esnext" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
   },
-  "include": [
-    "*.ts",
-    "lib/**/*.ts",
-    "server/**/*.ts",
-    "typings/**/*.ts",
-    "routes/**/*.ts"
-  ]
+  "include": ["lib/**/*.ts", "server/**/*.ts", "typings/**/*.ts"]
 }
