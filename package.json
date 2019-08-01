@@ -80,7 +80,7 @@
     "webpack": "^4.37.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^9.0.2",
+    "@next/bundle-analyzer": "^9.0.3",
     "@types/classnames": "^2.2.9",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
