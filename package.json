@@ -115,7 +115,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-enzyme": "^7.1.2",
-    "jest-junit": "^9.0.0",
+    "jest-junit": "^12.0.0",
     "jest-localstorage-mock": "^2.4.0",
     "jest-puppeteer": "^4.3.0",
     "mocha": "^6.2.2",
